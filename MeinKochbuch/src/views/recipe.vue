@@ -9,7 +9,6 @@
   <div class="recipename">
     <h2>Spaghetti Carbonara</h2>
   </div>
-  <div class="recipe">
     <div class="recipetext">
       <p>Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.</p>
     </div>
@@ -20,7 +19,7 @@
 
 <style>
 @media (min-width: 1024px) {
-    .recipe {
+    .recipeheader {
         min-height: 100vh;
         display: flex;
         align-items: center;
