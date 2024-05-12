@@ -7,6 +7,7 @@ let showRecipeName = true;
     <h1>Rezepte</h1>
   </div>
   <div class="recipename" v-if="showRecipeName">
+      <h1 class>Rezepte</h1>
     <h2>Spaghetti Carbonara</h2> <br>
       <p>Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.</p>
       <br>
@@ -35,7 +36,6 @@ let showRecipeName = true;
         <li>Pfeffer</li>
       </ul>
     </div>
-
 </template>
 
 <style>
