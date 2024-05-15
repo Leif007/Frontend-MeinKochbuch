@@ -1,5 +1,12 @@
 <script setup>
 let showRecipeName = true;
+let recipes = [
+    {
+        name: "Spaghetti Carbonara",
+        preparationTime: "20 Minuten",
+        cookingTime: "15 Minuten"
+    }
+];
 </script>
 
 <template>
@@ -20,12 +27,16 @@ let showRecipeName = true;
         <p>4. Die gekochten Spaghetti abgießen und in die Pfanne mit dem Guanciale geben. Die Ei-Käse-Mischung darüber gießen und gut vermengen.</p>
         <p>5. Mit Pfeffer würzen und sofort servieren.</p>
     </div>
+    <div v-for="(recipe, index) in recipes" :key="index">
+        <h2>{{ recipe.name }}</h2>
     <div class="recipeingredients">
       <h3>Dauer</h3>
         <ul>
-            <li> Zubereitungszeit: 20 Minuten</li>
-            <li> Kochzeit: 15 Minuten</li>
+            <li> Zubereitungszeit: {{ recipe.preparationTime }}</li>
+            <li> Kochzeit: {{ recipe.cookingTime }}</li>
         </ul>
+    </div>
+    </div>
 
       <h3>Zutaten</h3>
       <ul>
@@ -35,7 +46,6 @@ let showRecipeName = true;
         <li>100g Pecorino Romano</li>
         <li>Pfeffer</li>
       </ul>
-    </div>
 </template>
 
 <style>
