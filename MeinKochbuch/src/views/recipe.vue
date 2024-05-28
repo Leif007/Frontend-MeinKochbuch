@@ -19,7 +19,7 @@ let recipes = [
       <p>Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.</p>
       <br>
   </div>
-    <div>
+    <div class="zubereitung">
         <h3>Zubereitung</h3>
         <p>1. Die Spaghetti in einem großen Topf mit kochendem Salzwasser al dente kochen.</p>
         <p>2. In der Zwischenzeit das Guanciale in einer Pfanne bei mittlerer Hitze knusprig braten.</p>
@@ -37,7 +37,7 @@ let recipes = [
         </ul>
     </div>
     </div>
-
+    <div class="zutaten">
       <h3>Zutaten</h3>
       <ul>
         <li>400g Spaghetti</li>
@@ -46,6 +46,8 @@ let recipes = [
         <li>100g Pecorino Romano</li>
         <li>Pfeffer</li>
       </ul>
+    </div>
+
 </template>
 
 <style>
@@ -55,5 +57,9 @@ let recipes = [
         display: flex;
         align-items: center;
     }
+  .zubereitung {
+    background-color: whitesmoke;
+    padding: 10px;
+  }
 }
 </style>
