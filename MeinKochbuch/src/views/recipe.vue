@@ -12,6 +12,7 @@ let recipes = [
 <template>
   <div class="recipeheader">
     <h1>Rezepte</h1>
+      <TestComponent></TestComponent>
   </div>
   <div class="recipename" v-if="showRecipeName">
       <h1 class>Rezepte</h1>
