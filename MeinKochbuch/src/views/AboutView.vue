@@ -1,8 +1,10 @@
 <template>
-  <div class="about">
+  <header><div class="about">
     <h1>Dein Kochbuch</h1>
 
   </div>
+  </header>
+  <body>
   <div class="beschreibung">
     <div>
       <p>
@@ -10,16 +12,18 @@
     </p>
     </div>
   </div>
+  </body>
 </template>
 
 <style>
 @media (min-width: 1024px) {
   .about {
-    min-height: 100vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
   }
   .beschreibung {
+    margin-top: -40rem;
     margin-left: 1rem;
     font-size: large;
     overflow: auto;

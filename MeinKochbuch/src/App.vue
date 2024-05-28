@@ -5,12 +5,15 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
+    <div id="app">
+
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/recipe">Recipe</RouterLink> <!-- Hinzufügen des RouterLink zu /recipe -->
       </nav>
+    </div>
     </div>
   </header>
 
@@ -23,6 +26,10 @@ header {
   line-height: 1.5;
   max-height: 20vh;
   text-align: center;
+}
+#app {
+  display: flex;
+  justify-content: center;
 }
 
 nav {

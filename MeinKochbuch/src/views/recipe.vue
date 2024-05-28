@@ -76,6 +76,7 @@ let recipes = [
 
 <style>
 .body {
+  margin-top: 0rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Adjust this line */
@@ -84,7 +85,7 @@ let recipes = [
   padding: 10px;
 }
 .recipeheader {
-    min-height: 200vh;
+    min-height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,7 +94,7 @@ let recipes = [
 }
 @media (min-width: 1024px) {
     .recipeheader {
-        min-height: 100vh;
+        height: 100vh;
       justify-content: center;
         display: flex;
         align-items: center;
