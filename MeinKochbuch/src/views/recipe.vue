@@ -16,6 +16,7 @@ let recipes = [
       <button @click="loadThings">Load recipes</button>
 
   </div>
+  <body class="body">
   <div class="recipename" v-if="showRecipeName">
       <h1 class>Rezepte</h1>
     <h2>Spaghetti Carbonara</h2> <br>
@@ -50,13 +51,30 @@ let recipes = [
         <li>Pfeffer</li>
       </ul>
     </div>
-
+</body>
 </template>
 
 <style>
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Adjust this line */
+  gap: 20px; /* Adjust as needed */
+  background-color: whitesmoke;
+  padding: 10px;
+}
+.recipeheader {
+    min-height: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
 @media (min-width: 1024px) {
     .recipeheader {
         min-height: 100vh;
+      justify-content: center;
         display: flex;
         align-items: center;
     }
