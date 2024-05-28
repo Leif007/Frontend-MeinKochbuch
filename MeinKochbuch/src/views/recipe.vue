@@ -2,12 +2,28 @@
 import {loadThings} from "@/components/script.js";
 let showRecipeName = true;
 let recipes = [
-    {
-        name: "Spaghetti Carbonara",
-        preparationTime: "20 Minuten",
-        cookingTime: "15 Minuten"
-    }
+  {
+    name: "Spaghetti Carbonara",
+    preparationTime: "20 Minuten",
+    cookingTime: "15 Minuten",
+    description: "Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.",
+    ingredients: [
+      "400g Spaghetti",
+      "200g Guanciale",
+      "4 Eier",
+      "100g Pecorino Romano",
+      "Pfeffer"
+    ],
+    instructions: [
+      "Die Spaghetti in einem großen Topf mit kochendem Salzwasser al dente kochen.",
+      "In der Zwischenzeit das Guanciale in einer Pfanne bei mittlerer Hitze knusprig braten.",
+      "Die Eier in einer Schüssel verquirlen und den geriebenen Pecorino Romano hinzufügen.",
+      "Die gekochten Spaghetti abgießen und in die Pfanne mit dem Guanciale geben. Die Ei-Käse-Mischung darüber gießen und gut vermengen.",
+      "Mit Pfeffer würzen und sofort servieren."
+    ]
+  }
 ];
+
 </script>
 
 <template>
@@ -19,7 +35,9 @@ let recipes = [
   <body class="body">
   <div class="recipename" v-if="showRecipeName">
       <h1 class>Rezepte</h1>
-    <h2>Spaghetti Carbonara</h2> <br>
+    <div v-for="(recipe, index) in recipes" :key="index">
+      <h2>{{ recipe.name }}</h2> <br>
+    </div>
       <p>Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.</p>
       <br>
   </div>
@@ -52,6 +70,8 @@ let recipes = [
       </ul>
     </div>
 </body>
+
+
 </template>
 
 <style>
