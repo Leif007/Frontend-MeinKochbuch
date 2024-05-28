@@ -13,7 +13,7 @@ let recipes = [
 <template>
   <div class="recipeheader">
     <h1>Rezepte</h1>
-      <button @click="loadThings">Load Courses</button>
+      <button @click="loadThings">Load recipes</button>
 
   </div>
   <div class="recipename" v-if="showRecipeName">
