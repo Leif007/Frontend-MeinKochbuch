@@ -1,1 +1,2 @@
 VITE_BACKEND_URL=https://meinkochbuch-backend.onrender.com
+VITE_FRONTEND_BASE_URL=https://frontend-meinkochbuch-ka32.onrender.com/
