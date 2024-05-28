@@ -1,4 +1,5 @@
 <script setup>
+import {loadThings} from "@/components/script.js";
 let showRecipeName = true;
 let recipes = [
     {
@@ -12,6 +13,8 @@ let recipes = [
 <template>
   <div class="recipeheader">
     <h1>Rezepte</h1>
+      <button @click="loadThings">Load recipes</button>
+
   </div>
   <div class="recipename" v-if="showRecipeName">
       <h1 class>Rezepte</h1>
