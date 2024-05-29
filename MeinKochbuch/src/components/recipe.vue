@@ -69,13 +69,13 @@ function showAddRecipeForm() {
       <button type="submit">Add Recipe</button>
     </form>
     </div>
-
   </div>
   <body class="body">
   <div class="recipename" v-if="showRecipeName">
       <h1 class>Rezepte</h1>
     <div v-for="(recipe, index) in recipes" :key="index">
       <h2>{{ recipe.name }}</h2> <br>
+      <p>{{ recipe.instructions }}</p> <br>
     </div>
       <p>Spaghetti Carbonara ist ein klassisches italienisches Nudelgericht, das in der Regel aus Spaghetti, Guanciale, Ei, Pecorino Romano und Pfeffer zubereitet wird. Die Zutaten werden in einer Pfanne gemischt, bis sie eine cremige Konsistenz haben. Das Gericht wird oft mit zusätzlichem Pecorino Romano und Pfeffer garniert.</p>
       <br>
@@ -88,15 +88,12 @@ function showAddRecipeForm() {
         <p>4. Die gekochten Spaghetti abgießen und in die Pfanne mit dem Guanciale geben. Die Ei-Käse-Mischung darüber gießen und gut vermengen.</p>
         <p>5. Mit Pfeffer würzen und sofort servieren.</p>
     </div>
-    <div v-for="(recipe, index) in recipes" :key="index">
-        <h2>{{ recipe.name }}</h2>
-    <div class="recipeingredients">
+    <div class = "dauer">
       <h3>Dauer</h3>
-        <ul>
-            <li> Zubereitungszeit: {{ recipe.preparationTime }}</li>
-            <li> Kochzeit: {{ recipe.cookingTime }}</li>
-        </ul>
-    </div>
+      <ul>
+        <li> Zubereitungszeit: 20 Minuten</li>
+        <li> Kochzeit: 15 Minuten</li>
+      </ul>
     </div>
     <div class="zutaten">
       <h3>Zutaten</h3>
