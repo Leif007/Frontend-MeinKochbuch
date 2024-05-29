@@ -24,7 +24,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (recipe.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/recipe.vue') // Verwenden Sie die RecipeView-Komponente für diese Route
+      component: () => import('../components/recipe.vue') // Verwenden Sie die RecipeView-Komponente für diese Route
     }
 
   ]

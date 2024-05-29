@@ -1,6 +1,8 @@
 <script setup>
 import {loadThings} from "@/components/script.js";
+import { ref } from 'vue';
 let showRecipeName = true;
+let showForm = ref(false);
 let recipes = [
   {
     name: "Spaghetti Carbonara",
@@ -23,6 +25,31 @@ let recipes = [
     ]
   }
 ];
+let newRecipe = {
+  name: "",
+  preparationTime: "",
+  cookingTime: "",
+  description: "",
+  ingredients: [],
+  instructions: []
+};
+
+function addRecipe() {
+  recipes.push({...newRecipe});
+  newRecipe = {
+    name: "",
+    preparationTime: "",
+    cookingTime: "",
+    description: "",
+    ingredients: [],
+    instructions: []
+  };
+  showForm.value = false;
+}
+function showAddRecipeForm() {
+  showForm.value = true;
+}
+
 
 </script>
 
@@ -30,6 +57,18 @@ let recipes = [
   <div class="recipeheader">
     <h1>Rezepte</h1>
       <button @click="loadThings">Load recipes</button>
+    <button @click="showAddRecipeForm">Add Recipe</button>
+    <div class="addrecipe">
+    <form @submit.prevent="addRecipe" v-if="showForm">
+      <label>Name: <input v-model="newRecipe.name" required /></label>
+      <label>Preparation Time: <input v-model="newRecipe.preparationTime" required /></label>
+      <label>Cooking Time: <input v-model="newRecipe.cookingTime" required /></label>
+      <label>Description: <input v-model="newRecipe.description" required /></label>
+      <label>Ingredients: <input v-model="newRecipe.ingredients" required /></label>
+      <label>Instructions: <input v-model="newRecipe.instructions" required /></label>
+      <button type="submit">Add Recipe</button>
+    </form>
+    </div>
 
   </div>
   <body class="body">
@@ -72,9 +111,23 @@ let recipes = [
 </body>
 
 
+
 </template>
 
 <style>
+.addrecipe
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 50px;
+}
+.addrecipe button[type="submit"] {
+  margin-top: 20px;
+  align-items: flex-start;
+}
 .body {
   margin-top: 0rem;
   display: flex;
@@ -90,7 +143,7 @@ let recipes = [
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: whitesmoke;
+    background-color: navajowhite;
 }
 @media (min-width: 1024px) {
     .recipeheader {
@@ -99,9 +152,5 @@ let recipes = [
         display: flex;
         align-items: center;
     }
-  .zubereitung {
-    background-color: whitesmoke;
-    padding: 10px;
-  }
 }
 </style>

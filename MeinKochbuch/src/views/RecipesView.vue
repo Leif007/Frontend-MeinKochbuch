@@ -1,6 +1,6 @@
 <script setup>
 import TheWelcome from '../components/TheWelcome.vue'
-import Recipe from "@/views/recipe.vue";
+import Recipe from "@/components/recipe.vue";
 </script>
 
 <template>
