@@ -219,15 +219,7 @@ let filteredRecipes = computed(() => {
   margin-top: 20px;
   align-items: flex-start;
 }
-.body {
-  margin-top: 0rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Adjust this line */
-  gap: 2px; /* Adjust as needed */
-  background-color: whitesmoke;
 
-}
 .newRecipe{
   margin-top: 0rem;
   display: flex;
@@ -243,7 +235,7 @@ let filteredRecipes = computed(() => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: white;
+  background-color: lightcyan;
 }
 @media (min-width: 1024px) {
   .recipeheader {

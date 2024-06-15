@@ -26,6 +26,8 @@ header {
   line-height: 1.5;
   max-height: 20vh;
   text-align: center;
+
+  padding: 2px;
 }
 #app {
   display: flex;
@@ -84,5 +86,11 @@ nav a:first-of-type {
     flex-direction: row;
   }
 
+}
+
+</style>
+<style>
+body {
+  background-color: darkgray;
 }
 </style>

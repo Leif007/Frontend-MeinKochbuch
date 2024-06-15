@@ -21,14 +21,17 @@
     min-height: 75vh;
     display: flex;
     align-items: center;
+    background-color: lightcyan;
+    padding: 200px;
   }
   .beschreibung {
-    margin-top: -40rem;
+    margin-top: -30rem;
     margin-left: 1rem;
     font-size: large;
     overflow: auto;
     display: flex;
     align-items: center;
+    background-blend-mode: color;
 
   }
 }
