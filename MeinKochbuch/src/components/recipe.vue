@@ -4,6 +4,7 @@ import { ref, computed, watch, reactive} from 'vue';
 import { useRouter } from 'vue-router';
 let showRecipeName = true;
 let showForm = ref(false);
+let showFavoritesOnly = ref(false);
 let selectedCuisine = ref('');
 let selectedMealTime = ref('');
 let selectedDietType = ref('');
@@ -31,7 +32,8 @@ let recipes =  reactive([
       "Die Eier in einer Schüssel verquirlen und den geriebenen Pecorino Romano hinzufügen.",
       "Die gekochten Spaghetti abgießen und in die Pfanne mit dem Guanciale geben. Die Ei-Käse-Mischung darüber gießen und gut vermengen.",
       "Mit Pfeffer würzen und sofort servieren."
-    ]
+    ],
+    favorite: false
   },
   {
     name: "Ratatouille",
@@ -60,7 +62,8 @@ let recipes =  reactive([
       "In einer Pfanne Olivenöl erhitzen und die Zwiebeln und Knoblauchzehen darin anbraten.",
       "Die Gemüsescheiben abwechselnd in einer Auflaufform schichten.",
       "Mit Thymian und Basilikum bestreuen und im vorgeheizten Ofen bei 180°C ca. 45 Minuten backen."
-    ]
+    ],
+    favorite: false
   }
 ]);
 let newRecipe ={
@@ -122,7 +125,8 @@ let dietTypes = computed(() => {
 });
 let filteredRecipes = computed(() => {
   return recipes.filter(recipe => {
-    return (selectedCuisine.value === '' || recipe.cuisine === selectedCuisine.value) &&
+    return (!showFavoritesOnly.value || recipe.favorite) &&
+      (selectedCuisine.value === '' || recipe.cuisine === selectedCuisine.value) &&
       (selectedMealTime.value === '' || recipe.mealTime === selectedMealTime.value) &&
       (selectedDietType.value === '' || recipe.dietType === selectedDietType.value);
   });
@@ -167,6 +171,10 @@ function generateShoppingList(recipe) {
     params: { shoppingList: shoppingListParam }
   }, { replace: false });
 }
+function toggleFavorite(index) {
+  recipes[index].favorite = !recipes[index].favorite;
+}
+
 
 
 
@@ -181,6 +189,8 @@ function generateShoppingList(recipe) {
     <h1>Rezepte</h1>
     <button @click="loadThings">Load recipes</button>
     <button @click="showAddRecipeForm">Add Recipe</button>
+    <label for="filterFavorites">Show Favorites Only:</label>
+    <input type="checkbox" id="filterFavorites" v-model="showFavoritesOnly" />
     <label for="cuisine">Cuisine:</label>
     <select id="cuisine" v-model="selectedCuisine">
       <option value="">All</option>
@@ -221,6 +231,9 @@ function generateShoppingList(recipe) {
   </div>
   <div class="newRecipe" v-for="(recipe, index) in filteredRecipes" :key="index">
     <h2>{{ recipe.name }}</h2>
+    <button @click="toggleFavorite(index)">
+      {{ recipe.favorite ? 'Unmark Favorite' : 'Mark as Favorite' }}
+    </button>
     <button @click="deleteRecipe(index)">Delete Recipe</button>
     <button @click="editRecipe(index)">Edit Recipe</button>
     <button @click="generateShoppingList(recipe)">Generate Shopping List</button>
