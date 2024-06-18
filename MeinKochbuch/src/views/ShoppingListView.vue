@@ -22,7 +22,7 @@ watchEffect(() => {
 <template>
   <main>
     <h1>Shopping List</h1>
-    <p>Here you can see the Ingredients you need for various recipes</p>
+    <p>Here you can see what ingredients are needed for the chosen recipe. You can click on the button next to the ingredients to mark them off</p>
   </main>
   <div class="shoppingList">
     <h1>Shopping List</h1>
