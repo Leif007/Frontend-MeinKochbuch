@@ -6,7 +6,6 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <div id="app">
-
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
