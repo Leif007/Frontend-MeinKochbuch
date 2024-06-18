@@ -2,6 +2,7 @@
 import {loadThings} from "@/components/script.js";
 import { ref, computed, watch, reactive} from 'vue';
 import { useRouter } from 'vue-router';
+import axios from 'axios';
 let showRecipeName = true;
 let showForm = ref(false);
 let showFavoritesOnly = ref(false);
@@ -79,10 +80,45 @@ let newRecipe ={
   dietType: ""
 };
 
-function addRecipe() {
+async function addRecipe() {
   newRecipe.ingredients = newRecipe.ingredients.split('\n');
   newRecipe.instructions = newRecipe.instructions.split('\n');
-  recipes.push({...newRecipe}); // Push the new recipe to the recipes array
+
+  const endpoint = 'https://meinkochbuch-backend.onrender.com/kochbuch';
+
+
+  const data = {
+    name: newRecipe.name,
+    cuisine: newRecipe.cuisine,
+    mealTime: newRecipe.mealTime,
+    dietType: newRecipe.dietType,
+    preparationTime: newRecipe.preparationTime,
+    cookingTime: newRecipe.cookingTime,
+    description: newRecipe.description,
+    ingredients: newRecipe.ingredients,
+    instructions: newRecipe.instructions,
+    picture: newRecipe.picture
+  };
+
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+
+
+  try {
+    const response = await fetch(endpoint, requestOptions);
+    const responseData = await response.json();
+    console.log('Success:', responseData);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+
+  recipes.push({...newRecipe});
 
   selectedCuisine.value = newRecipe.dishType;
   selectedMealTime.value = newRecipe.mealTime;
