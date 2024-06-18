@@ -61,7 +61,7 @@ let recipes =  reactive([
       "Die Zwiebeln und Knoblauchzehen fein hacken.",
       "In einer Pfanne Olivenöl erhitzen und die Zwiebeln und Knoblauchzehen darin anbraten.",
       "Die Gemüsescheiben abwechselnd in einer Auflaufform schichten.",
-      "Mit Thymian und Basilikum bestreuen und im vorgeheizten Ofen bei 180°C ca. 45 Minuten backen."
+      "Mit Thymian und Basilikum bestreuen und im vorgeheizten Ofen bei 180°C ca. 45 Minuten backenn."
     ],
     favorite: false
   }
