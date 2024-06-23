@@ -3,9 +3,11 @@
 </script>
 
 <template>
-  <header><div class="home">
+  <header>
+    <div class="home">
     <h1>Dein Kochbuch</h1>
-
+    </div>
+  </header>
 </template>
 <style>
 @media (min-width: 1024px) {

@@ -80,45 +80,10 @@ let newRecipe ={
   dietType: ""
 };
 
-async function addRecipe() {
+function addRecipe() {
   newRecipe.ingredients = newRecipe.ingredients.split('\n');
   newRecipe.instructions = newRecipe.instructions.split('\n');
-
-  const endpoint = 'https://meinkochbuch-backend.onrender.com/kochbuch';
-
-
-  const data = {
-    name: newRecipe.name,
-    cuisine: newRecipe.cuisine,
-    mealTime: newRecipe.mealTime,
-    dietType: newRecipe.dietType,
-    preparationTime: newRecipe.preparationTime,
-    cookingTime: newRecipe.cookingTime,
-    description: newRecipe.description,
-    ingredients: newRecipe.ingredients,
-    instructions: newRecipe.instructions,
-    picture: newRecipe.picture
-  };
-
-
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  };
-
-
-  try {
-    const response = await fetch(endpoint, requestOptions);
-    const responseData = await response.json();
-    console.log('Success:', responseData);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-
-  recipes.push({...newRecipe});
+  recipes.push({...newRecipe}); // Push the new recipe to the recipes array
 
   selectedCuisine.value = newRecipe.dishType;
   selectedMealTime.value = newRecipe.mealTime;
