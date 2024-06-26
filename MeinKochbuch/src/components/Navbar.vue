@@ -26,7 +26,7 @@ import { RouterLink } from 'vue-router'
 
     <li>
       <RouterLink to='/shoppinglist'>
-        ShoppingListe
+        Shoppingliste
       </RouterLink>
     </li>
 
