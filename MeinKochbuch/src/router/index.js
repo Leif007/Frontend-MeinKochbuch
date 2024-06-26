@@ -6,8 +6,24 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../components/recipe_chrisView.vue')
+      component: () => import('../views/HomeView.vue')
     },
+    {
+      path: '/addRecipe',
+      name: 'AddRecipe',
+      component: () => import('../views/AddRecipeView.vue')
+    },
+    {
+      path: '/recipes',
+      name: 'AllRecipes',
+      component: () => import('../views/RecipesView.vue')
+    },
+    {
+      path: '/shoppinglist',
+      name: 'ShoppingList',
+      component: () => import('../views/ShoppingListView.vue')
+    },
+
   ]
 })
 

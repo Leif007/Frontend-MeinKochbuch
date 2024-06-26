@@ -1,11 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-import Recipe from "@/components/recipe.vue";
+import AllRecipesList from "@/components/AllRecipesList.vue";
 </script>
 
 <template>
     <main>
-
-        <recipe />
+      <AllRecipesList />
     </main>
 </template>
