@@ -68,58 +68,52 @@ let recipes =  reactive([
     favorite: false
   }
 ]);
-async function save () {
-  const newRecipe = {
-    name: nameField.value,
-    description: descriptionField.value,
-    prepTime: prepTimeField.value,
-    cookingTime: cookingTimeField.value,
-    ingredients: ingredientsField.value,
-    servings: servingsField.value
-  }
-  const responseData = await createRecipe(newRecipe);
-  recipes.value.push(responseData) // Add the new recipe to the list
-  console.log('Success:', responseData)
-}
-let newRecipe ={
-  name: "",
-  picture: "",
-  preparationTime: "",
-  cookingTime: "",
-  description: "",
-  ingredients: [""],
-  instructions: [""],
-  cuisine: "",
-  mealTime: "",
-  dietType: ""
-};
 
-function addRecipe() {
+let newRecipe = reactive({
+  name: '',
+  cuisine: '',
+  mealTime: '',
+  dietType: '',
+  preparationTime: '',
+  cookingTime: '',
+  description: '',
+  ingredients: [],
+  instructions: [],
+  picture: ''
+});
+
+
+async function addRecipe() {
   newRecipe.ingredients = newRecipe.ingredients.split('\n');
   newRecipe.instructions = newRecipe.instructions.split('\n');
   recipes.push({...newRecipe}); // Push the new recipe to the recipes array
 
-  selectedCuisine.value = newRecipe.dishType;
+  selectedCuisine.value = newRecipe.cuisine;
   selectedMealTime.value = newRecipe.mealTime;
   selectedDietType.value = newRecipe.dietType;
 
-  newRecipe = {
-    name: "",
-    picture: "",
-    preparationTime: "",
-    cookingTime: "",
-    description: "",
-    ingredients: [""],
-    instructions: [""],
-    dishType: "",
-    mealTime: "",
-    dietType: ""
-  };
+  const responseData = await createRecipe(newRecipe);
+  console.log('Success:', responseData);
+
+  newRecipe = reactive({
+    name: '',
+    cuisine: '',
+    mealTime: '',
+    dietType: '',
+    preparationTime: '',
+    cookingTime: '',
+    description: '',
+    ingredients: [],
+    instructions: [],
+    picture: ''
+  });
   showForm.value = false;
 }
+
 function showAddRecipeForm() {
   showForm.value = true;
 }
+
 function deleteRecipe(index) {
   console.log("deleteRecipe function called with index: ", index);
   recipes.splice(index, 1);
