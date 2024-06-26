@@ -20,4 +20,8 @@ export default {
         return apiClient.post('/recipe', {newRecipe})
     },
 
+    allRecipes() {
+        return apiClient.get('/recipes')
+    }
+
 }

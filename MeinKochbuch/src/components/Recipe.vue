@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div id="container">
     <form @submit.prevent="submitForm">
-      <div>
+      <div id="form-content">
+      <div id = "info">
         <label for="name">Name:</label>
         <input type="text" v-model="recipe.name" id="name" />
       </div>
@@ -25,7 +26,9 @@
         <label for="description">Description:</label>
         <textarea v-model="recipe.description" id="description"></textarea>
       </div>
+      </div>
 
+      <div id="ingredients">
       <div>
         <label for="ingredients">Ingredients:</label>
         <div v-for="(ingredient, index) in recipe.ingredients" :key="index">
@@ -35,6 +38,7 @@
         <button type="button" @click="addIngredient">Add Ingredient</button>
       </div>
 
+        <div ID="more-info">
       <div>
         <label for="instructions">Instructions:</label>
         <div v-for="(instruction, index) in recipe.instructions" :key="index">
@@ -58,7 +62,8 @@
         <label for="dietType">Diet Type:</label>
         <input type="text" v-model="recipe.dietType" id="dietType" />
       </div>
-
+        </div>
+      </div>
       <button type="submit">Save Recipe</button>
     </form>
     <pre>{{ newRecipe }}</pre>
@@ -116,5 +121,43 @@ export default {
 </script>
 
 <style scoped>
-/* Füge hier deine CSS-Stile hinzu */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+form div {
+  margin-bottom: 1em;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 0.5em 1em;
+  color: white;
+  background-color: #749fd1;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #1f3c63;
+}
+
+#form-content {
+
+}
+#container {
+  height: 100vh;
+  margin-top: 100px;
+  margin-left: 50vh;
+}
 </style>
