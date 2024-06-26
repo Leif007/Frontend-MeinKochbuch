@@ -11,4 +11,9 @@ export function loadThings() {
       })
       .catch(error => console.log('error', error));
 }
-
+export async function createRecipe(recipe) {
+    const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL // 'http://localhost:8080' in dev mode
+    const endpoint = baseUrl + '/recipes'
+    const response = await axios.post(endpoint, recipe);
+    return response.data;
+}

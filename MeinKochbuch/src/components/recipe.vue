@@ -2,6 +2,7 @@
 import {loadThings} from "@/components/script.js";
 import { ref, computed, watch, reactive} from 'vue';
 import { useRouter } from 'vue-router';
+import { createRecipe } from '@/components/script.js'
 import axios from 'axios';
 let showRecipeName = true;
 let showForm = ref(false);
@@ -67,6 +68,19 @@ let recipes =  reactive([
     favorite: false
   }
 ]);
+async function save () {
+  const newRecipe = {
+    name: nameField.value,
+    description: descriptionField.value,
+    prepTime: prepTimeField.value,
+    cookingTime: cookingTimeField.value,
+    ingredients: ingredientsField.value,
+    servings: servingsField.value
+  }
+  const responseData = await createRecipe(newRecipe);
+  recipes.value.push(responseData) // Add the new recipe to the list
+  console.log('Success:', responseData)
+}
 let newRecipe ={
   name: "",
   picture: "",
