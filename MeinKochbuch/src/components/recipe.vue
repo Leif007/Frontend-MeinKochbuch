@@ -1,8 +1,9 @@
 <script setup>
 import {loadThings} from "@/components/script.js";
-import { ref, computed, watch, reactive} from 'vue';
+import { ref, computed, watch, reactive, onMounted} from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 let showRecipeName = true;
 let showForm = ref(false);
 let showFavoritesOnly = ref(false);
@@ -67,6 +68,7 @@ let recipes =  reactive([
     favorite: false
   }
 ]);
+
 let newRecipe ={
   name: "",
   picture: "",
@@ -81,9 +83,13 @@ let newRecipe ={
 };
 
 function addRecipe() {
-  newRecipe.ingredients = newRecipe.ingredients.split('\n');
-  newRecipe.instructions = newRecipe.instructions.split('\n');
-  recipes.push({...newRecipe}); // Push the new recipe to the recipes array
+
+  if (typeof newRecipe.ingredients === 'string') {
+    newRecipe.ingredients = newRecipe.ingredients.split('\n');
+  }
+  if (typeof newRecipe.instructions === 'string') {
+    newRecipe.instructions = newRecipe.instructions.split('\n');
+  }
 
   selectedCuisine.value = newRecipe.dishType;
   selectedMealTime.value = newRecipe.mealTime;
@@ -140,6 +146,7 @@ function editRecipe(index) {
 }
 
 function updateRecipe() {
+
   recipes[editIndex.value] = {...newRecipe};
   resetForm();
 }
@@ -175,9 +182,6 @@ function generateShoppingList(recipe) {
 function toggleFavorite(index) {
   recipes[index].favorite = !recipes[index].favorite;
 }
-
-
-
 
 
 
