@@ -1,0 +1,120 @@
+<template>
+  <div>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" v-model="recipe.name" id="name" />
+      </div>
+
+      <div>
+        <label for="picture">Picture URL:</label>
+        <input type="text" v-model="recipe.picture" id="picture" />
+      </div>
+
+      <div>
+        <label for="preparationTime">Preparation Time:</label>
+        <input type="text" v-model="recipe.preparationTime" id="preparationTime" />
+      </div>
+
+      <div>
+        <label for="cookingTime">Cooking Time:</label>
+        <input type="text" v-model="recipe.cookingTime" id="cookingTime" />
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea v-model="recipe.description" id="description"></textarea>
+      </div>
+
+      <div>
+        <label for="ingredients">Ingredients:</label>
+        <div v-for="(ingredient, index) in recipe.ingredients" :key="index">
+          <input type="text" v-model="recipe.ingredients[index]" />
+          <button type="button" @click="removeIngredient(index)">Remove</button>
+        </div>
+        <button type="button" @click="addIngredient">Add Ingredient</button>
+      </div>
+
+      <div>
+        <label for="instructions">Instructions:</label>
+        <div v-for="(instruction, index) in recipe.instructions" :key="index">
+          <input type="text" v-model="recipe.instructions[index]" />
+          <button type="button" @click="removeInstruction(index)">Remove</button>
+        </div>
+        <button type="button" @click="addInstruction">Add Instruction</button>
+      </div>
+
+      <div>
+        <label for="dishType">Dish Type:</label>
+        <input type="text" v-model="recipe.dishType" id="dishType" />
+      </div>
+
+      <div>
+        <label for="mealTime">Meal Time:</label>
+        <input type="text" v-model="recipe.mealTime" id="mealTime" />
+      </div>
+
+      <div>
+        <label for="dietType">Diet Type:</label>
+        <input type="text" v-model="recipe.dietType" id="dietType" />
+      </div>
+
+      <button type="submit">Save Recipe</button>
+    </form>
+    <pre>{{ newRecipe }}</pre>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+import api from "@/components/api.js"; // Vergiss nicht, axios zu importieren
+
+export default {
+  data() {
+    return {
+      recipe: {
+        name: "",
+        picture: "",
+        preparationTime: "",
+        cookingTime: "",
+        description: "",
+        ingredients: [""],
+        instructions: [""],
+        dishType: "",
+        mealTime: "",
+        dietType: ""
+      },
+      newRecipe: null
+    };
+  },
+  methods: {
+    addIngredient() {
+      this.recipe.ingredients.push("");
+    },
+    removeIngredient(index) {
+      this.recipe.ingredients.splice(index, 1);
+    },
+    addInstruction() {
+      this.recipe.instructions.push("");
+    },
+    removeInstruction(index) {
+      this.recipe.instructions.splice(index, 1);
+    },
+    submitForm() {
+      this.newRecipe = { ...this.recipe };
+
+      api.newRecipe(this.newRecipe)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error)
+          });
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* Füge hier deine CSS-Stile hinzu */
+</style>

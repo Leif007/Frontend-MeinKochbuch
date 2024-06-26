@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -8,9 +7,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <div id="app">
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/recipe">Recipe</RouterLink> <!-- Hinzufügen des RouterLink zu /recipe -->
-        <RouterLink to="/shopping-list">Shopping List</RouterLink>
+              <RouterLink to="/chris">Salam Aleikum</RouterLink>
       </nav>
     </div>
     </div>
