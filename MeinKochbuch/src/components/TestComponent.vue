@@ -1,4 +1,6 @@
 <script setup>
+import {loadThings} from "@/components/script.js";
+
 loadThings ()
 {
     const endpoint = "https://meinkochbuch-backend.onrender.com/kochbuch"
