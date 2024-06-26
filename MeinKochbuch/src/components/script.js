@@ -2,7 +2,7 @@ import { reactive } from 'vue';
 import axios from 'axios';
 
 export function loadThings() {
-    const endpoint = "https://meinkochbuch-backend.onrender.com/kochbuch";
+    const endpoint = "https://meinkochbuch-backend.onrender.com/";
     axios.get(endpoint)
       .then(response => {
           response.data.forEach(thing => {
