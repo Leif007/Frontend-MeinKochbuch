@@ -12,7 +12,7 @@
 <style scoped>
 
 .welcome {
-  padding-left: 40vh;
+  padding-left: 50vh;
   text-align: center;
 
 }
