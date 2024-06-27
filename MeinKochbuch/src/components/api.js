@@ -25,10 +25,11 @@ export default {
     },
     searchAndGetDetails(foodNames) {
     const backendUrl = 'https://meinkochbuch-backend.onrender.com/api';
-
+        console.log(`Fetching details for: ${foodNames}`);
     fetch(`${backendUrl}/searchAndGetDetails/${foodNames}`)
       .then(response => response.json())
       .then(data => {
+          console.log(`Received data: ${JSON.stringify(data)}`);
           console.log(data);
       })
       .catch(error => {
