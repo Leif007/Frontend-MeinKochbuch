@@ -24,7 +24,7 @@ export default {
         return apiClient.get('/recipes')
     },
     searchAndGetDetails(foodNames) {
-    const backendUrl = 'https://meinkochbuch-backend.onrender.com/api';
+    const backendUrl = 'https://meinkochbuch-backend.onrender.com';
         console.log(`Fetching details for: ${foodNames}`);
     fetch(`${backendUrl}/searchAndGetDetails/${foodNames}`)
       .then(response => response.json())
