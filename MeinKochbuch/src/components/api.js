@@ -23,16 +23,14 @@ export default {
     allRecipes() {
         return apiClient.get('/recipes')
     },
-    searchAndGetDetails(foodName) {
-        return apiClient.get(`/searchAndGetDetails/${foodName}`)
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-}
+    searchAndGetDetails(foodNames) {
+        return apiClient.get(`/searchAndGetDetails/${foodNames}`)
+          .then(response => response.json())
+          .catch(error => {
+              console.error('Error:', error);
+              return []; // Return an empty list if the request fails
+          });
+    }
 }
 
 

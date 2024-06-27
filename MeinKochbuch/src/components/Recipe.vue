@@ -120,12 +120,14 @@ export default {
 
         const detailsList = await api.searchAndGetDetails(ingredients);
 
-        for (let details of detailsList) {
-          for (let key in details) {
-            if (aggregatedDetails[key]) {
-              aggregatedDetails[key] += details[key];
-            } else {
-              aggregatedDetails[key] = details[key];
+        if (detailsList) {
+          for (let details of detailsList) {
+            for (let key in details) {
+              if (aggregatedDetails[key]) {
+                aggregatedDetails[key] += details[key];
+              } else {
+                aggregatedDetails[key] = details[key];
+              }
             }
           }
         }
