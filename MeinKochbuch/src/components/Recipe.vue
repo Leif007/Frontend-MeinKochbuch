@@ -71,8 +71,9 @@
 </template>
 
 <script>
-import axios from 'axios';
 import api from "@/components/api.js"; // Vergiss nicht, axios zu importieren
+
+
 
 export default {
   data() {
