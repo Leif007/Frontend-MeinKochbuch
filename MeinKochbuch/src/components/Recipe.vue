@@ -114,10 +114,13 @@ export default {
 
         let aggregatedDetails = {};
 
-        for (let ingredient of this.newRecipe.ingredients) {
 
-          const details = await api.searchAndGetDetails(ingredient);
+        const ingredients = this.newRecipe.ingredients.join(',');
 
+
+        const detailsList = await api.searchAndGetDetails(ingredients);
+
+        for (let details of detailsList) {
           for (let key in details) {
             if (aggregatedDetails[key]) {
               aggregatedDetails[key] += details[key];
