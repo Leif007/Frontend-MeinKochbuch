@@ -24,13 +24,17 @@ export default {
         return apiClient.get('/recipes')
     },
     searchAndGetDetails(foodNames) {
-        return apiClient.get(`/searchAndGetDetails/${foodNames}`)
-          .then(response => response.json())
-          .catch(error => {
-              console.error('Error:', error);
-              return []; // Return an empty list if the request fails
-          });
-    }
+    const backendUrl = 'https://meinkochbuch-backend.onrender.com/api';
+
+    fetch(`${backendUrl}/searchAndGetDetails/${foodNames}`)
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+}
 }
 
 
