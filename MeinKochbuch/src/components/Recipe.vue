@@ -121,7 +121,7 @@ export default {
 
         const detailsList = await api.searchAndGetDetails(ingredients);
 
-        if (detailsList) {
+        if (detailsList && detailsList.length > 0) {
           for (let details of detailsList) {
             for (let key in details) {
               if (aggregatedDetails[key]) {
@@ -131,7 +131,9 @@ export default {
               }
             }
           }
-        }
+        } else {
+            console.log('No data returned from searchAndGetDetails');
+          }
 
         console.log(aggregatedDetails);
       } catch (error) {
