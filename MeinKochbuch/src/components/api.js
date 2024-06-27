@@ -25,3 +25,17 @@ export default {
     }
 
 }
+
+
+export function searchAndGetDetails(foodName) {
+    const backendUrl = 'https://meinkochbuch-backend.onrender.com/api';
+
+    fetch(`${backendUrl}/searchAndGetDetails/${foodName}`)
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+}

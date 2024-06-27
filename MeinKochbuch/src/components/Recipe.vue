@@ -105,19 +105,35 @@ export default {
     removeInstruction(index) {
       this.recipe.instructions.splice(index, 1);
     },
-    submitForm() {
+    async submitForm() {
       this.newRecipe = { ...this.recipe };
 
-      api.newRecipe(this.newRecipe)
-          .then(response => {
-            console.log(response)
-          })
-          .catch(error => {
-            console.log(error)
-          });
+      try {
+        const response = await api.newRecipe(this.newRecipe);
+        console.log(response);
+
+        let aggregatedDetails = {};
+
+        for (let ingredient of this.newRecipe.ingredients) {
+
+          const details = await api.searchAndGetDetails(ingredient);
+
+          for (let key in details) {
+            if (aggregatedDetails[key]) {
+              aggregatedDetails[key] += details[key];
+            } else {
+              aggregatedDetails[key] = details[key];
+            }
+          }
+        }
+
+        console.log(aggregatedDetails);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
-};
+}
 </script>
 
 <style scoped>
