@@ -24,7 +24,7 @@ export default {
         return apiClient.get('/recipes')
     },
     searchAndGetDetails(foodName) {
-    fetch(`${url}/searchAndGetDetails/${foodName}`)
+        return apiClient.get(`/searchAndGetDetails/${foodName}`)
       .then(response => response.json())
       .then(data => {
           console.log(data);
