@@ -22,14 +22,8 @@ export default {
 
     allRecipes() {
         return apiClient.get('/recipes')
-    }
-
-}
-
-
-export function searchAndGetDetails(foodName) {
-    const backendUrl = 'https://meinkochbuch-backend.onrender.com/api';
-
+    },
+    searchAndGetDetails(foodName) {
     fetch(`${backendUrl}/searchAndGetDetails/${foodName}`)
       .then(response => response.json())
       .then(data => {
@@ -39,3 +33,6 @@ export function searchAndGetDetails(foodName) {
           console.error('Error:', error);
       });
 }
+}
+
+
